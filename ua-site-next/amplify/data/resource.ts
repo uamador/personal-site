@@ -17,6 +17,21 @@ const schema = a.schema({
       )
       .authorization((allow) => allow.publicApiKey()),
 
+    cityAdvisor: a.generation({
+        aiModel: a.ai.model("Claude 3 Sonnet"),
+        systemPrompt: 'You are a helpful assistant that generates tourist advice based on what city the user asked',
+    })
+        .arguments({
+            city: a.string(),
+        })
+        .returns(
+            a.customType({
+                city: a.string(),
+                advice: a.string(),
+            })
+        )
+        .authorization((allow) => allow.publicApiKey()),
+
 });
 
 export type Schema = ClientSchema<typeof schema>;
