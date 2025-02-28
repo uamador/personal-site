@@ -25,12 +25,16 @@ export default function Page() {
     return (
         <Flex direction="column">
             <Flex direction="row">
-                <TextAreaField
-                    autoResize
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    label="City"
-                />
+                <SelectField label="City" value={city} onChange={(e) => setCity(e.target.value)}>
+                    <option value="Toronto">Toronto</option>
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Ottawa">Ottawa</option>
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Montreal">Montreal</option>
+                    <option value="Miami">Miami</option>
+                </SelectField>
 
                 <SelectField label="Tone" value={tone} onChange={(e) => setTone(e.target.value)}>
                     <option value="funny">Funny</option>
