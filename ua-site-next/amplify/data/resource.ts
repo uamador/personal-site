@@ -19,10 +19,10 @@ const schema = a.schema({
 
     cityAdvisor: a.generation({
         aiModel: a.ai.model("Claude 3 Sonnet"),
-        systemPrompt: 'You are a helpful assistant that generates tourist advice based on what city the user asked',
+        systemPrompt: 'You are a helpful assistant that generates tourist advice based on the tourist request',
     })
         .arguments({
-            city: a.string(),
+            tourist_request: a.string(),
         })
         .returns(
             a.customType({
